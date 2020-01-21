@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Guessing.sh
+
+function countoffile{  
+  echo $(ls -al | grep ^[-] | wc -l)
+}
+echo "How many no. of files in the Folder ./"
+echo  "Press Enter :"
+file=$(countoffile)
+while read Result
+do
+  if ! [[ $Result =~ ^[0-9]+$ ]]
+  then
+    echo "Result isnt an integer and non -ve number"
+    echo "Please enter another guess and Press enter:"
+  elif [[ $Result -gt $file ]]
+  then
+    echo "Result guessed by user is greater"
+    echo "Please enter new guess and Press enter:"
+  elif [[ $Result -lt $file ]]
+  then
+    echo "Result guessed is lower"
+    echo "Enter new guess and Press enter:"
+  else
+    echo "Congrats, $file is the correct!"
+    break
+done

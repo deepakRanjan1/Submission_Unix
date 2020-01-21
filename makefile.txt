@@ -1,0 +1,11 @@
+README.md: guessinggame.sh
+	echo "# Project" > README.md
+	echo "Submission_Unix\n" >> README.md
+	echo "Peer Assignment on Bash, Make, Git, and GitHub\n" >> README.md
+	echo "\n### Start date" >> README.md
+	date >> README.md
+	echo "\n### Total count of code lines" >> README.md
+	wc -l guessinggame.sh | egrep -o "[0-9]+" >> README.md
+
+clean:
+	rm README.md
